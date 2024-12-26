@@ -152,7 +152,6 @@ cython_debug/
 
 # JetBrains specific files
 .idea/
-
 # VSCoode specific files
 .vscode/
 
