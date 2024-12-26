@@ -43,7 +43,7 @@ def count_clicks(token, short_link):
 
 def main():
     load_dotenv()
-    token = os.getenv('TOKEN')
+    VK_TOKEN = os.getenv('TOKEN')
     parser = argparse.ArgumentParser(description='Сокращает ссылки и выводит количество переходов по ней')
     parser.add_argument('--link', help='Введите ссылку:')
     args = parser.parse_args()
@@ -52,9 +52,9 @@ def main():
     try:   
         if parsed_url.netloc == 'vk.cc':
             print("Кол-во кликов по ссылке:", 
-                count_clicks(token, parsed_url.path[1:])[0]["views"])
+                count_clicks(VK_TOKEN, parsed_url.path[1:])[0]["views"])
         else: 
-            print(f"Короткая ссылка: {get_short_link(long_url, token)}")
+            print(f"Короткая ссылка: {get_short_link(long_url, VK_TOKEN)}")
     except requests.exceptions.HTTPError as e:
         print(f"HTTP error: {e}")
 
